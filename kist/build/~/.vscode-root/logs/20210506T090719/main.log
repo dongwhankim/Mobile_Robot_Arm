@@ -1,0 +1,11 @@
+[2021-05-06 09:07:19.784] [main] [info] update#setState idle
+[2021-05-06 09:07:49.786] [main] [info] update#setState checking for updates
+[2021-05-06 09:07:49.792] [main] [error] Error: net::ERR_NAME_NOT_RESOLVED
+    at SimpleURLLoaderWrapper.<anonymous> (electron/js2c/browser_init.js:109:6508)
+    at SimpleURLLoaderWrapper.emit (events.js:315:20)
+[2021-05-06 09:07:49.792] [main] [info] update#setState idle
+[2021-05-06 10:07:53.974] [main] [info] update#setState checking for updates
+[2021-05-06 10:07:53.977] [main] [error] Error: net::ERR_INTERNET_DISCONNECTED
+    at SimpleURLLoaderWrapper.<anonymous> (electron/js2c/browser_init.js:109:6508)
+    at SimpleURLLoaderWrapper.emit (events.js:315:20)
+[2021-05-06 10:07:53.977] [main] [info] update#setState idle

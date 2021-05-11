@@ -1,0 +1,46 @@
+[2021-05-11 09:31:52.618] [renderer1] [error] net::ERR_INTERNET_DISCONNECTED: Error: net::ERR_INTERNET_DISCONNECTED
+    at SimpleURLLoaderWrapper.<anonymous> (electron/js2c/browser_init.js:109:6508)
+    at SimpleURLLoaderWrapper.emit (events.js:315:20)
+[2021-05-11 09:31:54.825] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:33:53.218] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:33:57.497] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:33:59.522] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:01.705] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:04.358] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:06.594] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:10.859] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:20.914] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:27.703] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:50.870] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:34:53.960] [renderer1] [error] [text file model] handleSaveError(47) - exit - resulted in a save error: Error: 파일 '/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp'(Error: 파일 수정됨)을(를) 쓸 수 없음 file:///home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
+[2021-05-11 09:35:11.756] [renderer1] [error] [text file model] handleSaveError(47) - exit - resulted in a save error: Error: 파일 '/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp'(Error: 파일 수정됨)을(를) 쓸 수 없음 file:///home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
+[2021-05-11 09:35:22.264] [renderer1] [error] [text file model] handleSaveError(47) - exit - resulted in a save error: Error: 파일 '/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp'(Error: 파일 수정됨)을(를) 쓸 수 없음 file:///home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
+[2021-05-11 09:35:31.186] [renderer1] [error] [text file model] handleSaveError(47) - exit - resulted in a save error: Error: 파일 '/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp'(Error: 파일 수정됨)을(를) 쓸 수 없음 file:///home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
+[2021-05-11 09:35:31.817] [renderer1] [error] [text file model] handleSaveError(47) - exit - resulted in a save error: Error: 파일 '/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp'(Error: 파일 수정됨)을(를) 쓸 수 없음 file:///home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
+[2021-05-11 09:35:33.312] [renderer1] [error] [text file model] handleSaveError(47) - exit - resulted in a save error: Error: 파일 '/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp'(Error: 파일 수정됨)을(를) 쓸 수 없음 file:///home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
+[2021-05-11 09:35:45.744] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:36:22.417] [renderer1] [error] [text file model] handleSaveError(52) - exit - resulted in a save error: Error: 파일 '/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp'(Error: 파일 수정됨)을(를) 쓸 수 없음 file:///home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
+[2021-05-11 09:36:30.516] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:36:55.726] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:00.039] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:11.190] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:13.064] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:29.889] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:34.712] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:38.883] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:56.004] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:37:57.970] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:38:10.665] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:38:34.764] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:38:38.575] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:38:40.753] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:38:51.293] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:38:59.749] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:39:01.751] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:39:05.740] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:39:16.887] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:39:48.585] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:39:55.869] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:40:02.045] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:40:06.660] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
+[2021-05-11 09:40:17.020] [renderer1] [error] 알 수 없는 오류가 발생했습니다. 자세한 내용은 로그를 참조하세요.
