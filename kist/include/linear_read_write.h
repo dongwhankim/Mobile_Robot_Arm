@@ -19,13 +19,13 @@ public:
     int char2int(char a);
     int _linear_present_position;
     int _linear_serial_port;
-
+    char _read_buf[64];
 
 private:
     
     unsigned char _Echo_off[5] = {'E' , 'M' , '=', '2', '\r' }; // echo_off
     unsigned char _Enable_encoder[5] = {'E' , 'E' , '=', '1', '\r' }; // encoder enable <not used>
-    unsigned char _encoder[5] = {'P' , 'R' , ' ', 'P', '\r' }; // present encoder
+    unsigned char _encoder[5] = {'P' , 'R' , ' ', 'P','\r'};//, '"', 'P', '\r' }; // present encoder
     unsigned char _velocity[11] = {'V' , 'M' , '=', '1','1', '0', '0', '0', '0', '0', '\r' }; // 1,000,000cnt/sec
     unsigned char _homing[4] = {'P', '=' , '0', '\r' }; // homing
     //unsigned char _CR[9] = {'C', 'R', '=' , '0','.','0','0','1', '\r' }; // CR
@@ -35,6 +35,8 @@ private:
     int _encoder_cnt ;
     int _count ;
     int _temp_present_position;
+    int iRet;
+
 	unsigned char _select_1[5] ;
     unsigned char _select_2[6] ;
     unsigned char _select_3[7] ;
@@ -43,8 +45,9 @@ private:
     unsigned char _select_6[10] ;
     unsigned char _select_7[11] ;
     unsigned char _select_8[12] ;
-    char _read_buf[64];
-    char _temp_buf[64];
+
+    
+    char _temp_buf[255];
     bool _plus_minus_state; // 0 = minus , 1 = plus
     bool _encoder_plus_minus_state; // 0 = minus , 1 = plus
     bool _read_state;

@@ -35,6 +35,7 @@ Clinear::Clinear()
   _encoder_plus_minus_state = 1; // 0 = minus , 1 = plus
   _read_state = 0;
   _temp_state = 0;
+  iRet = 0;
 
   for(int i = 0; i< 64; i++)
       {
@@ -53,97 +54,106 @@ void Clinear::homing()
 }
 
 void Clinear::read_encoder()
-{write(_linear_serial_port, _encoder, sizeof(_encoder));
-  while(1)
-  {
-      if(_temp_state == 0)
-        {
-          write(_linear_serial_port, _encoder, sizeof(_encoder));
-          _temp_state = 1;
-        }
+{ 
+  read(_linear_serial_port,  _read_buf,  255);
+  printf("[%s]\n",_read_buf);
+  tcflush(_linear_serial_port,  TCIFLUSH);//  시리얼 포트 수신 큐 초기화tcsetattr(iDev,  TCSANOW,  &stNewState);
+  write(_linear_serial_port, _encoder, sizeof(_encoder));
+  
+  //tcsetattr(_linear_serial_port,  TCSANOW,  &tty);
+  //usleep(3000);
+  //read(_linear_serial_port, _read_buf, sizeof(_read_buf));
+  
+  // while(1)
+  // {
+  //     if(_temp_state == 0)
+  //       {
+  //         write(_linear_serial_port, _encoder, sizeof(_encoder));
+  //         _temp_state = 1;
+  //       }
         
-        //_encoder_cnt = 0;
+  //       //_encoder_cnt = 0;
  
-        //_encoder_cnt++;
-        read(_linear_serial_port, _read_buf, sizeof(_read_buf));
-        //usleep(100000);
+  //       //_encoder_cnt++;
+  //       read(_linear_serial_port, _read_buf, sizeof(_read_buf));
+  //       //usleep(100000);
 
-      for (int i = 0; i<64 ; i++)
-        {
-          _temp_buf[i] = _read_buf[i];
+  //     for (int i = 0; i<64 ; i++)
+  //       {
+  //         _temp_buf[i] = _read_buf[i];
           
-          if(_temp_buf[i] == '-')
-            {
-              _encoder_plus_minus_state = 0;
-            }
-          if(_temp_buf[i] >= '0' && _temp_buf[i] <= '9')
-            {
-              _read_state = 1;
-              _check_encoder_size = i;
-            }
-        }
-      //std::cout << "linear enc[0]: 1st : " << (int)_temp_buf[0]<<std::endl ;
-      if((int)_temp_buf[0] == 0)
-        {
-          _read_state = 0;
-        }
-      else if((int)_temp_buf[0] == 10)
-        {
-          _read_state = 0;
-        }
-      //std::cout << "_read_state : "<<_read_state<<std::endl ;
-      if (_read_state == 0)
-        {
-        }
-        else if (_read_state == 1)
-        {
-          //std::cout << "linear enc[0]: " << _temp_buf[0]<<std::endl ;
-          //std::cout << "linear enc[1]: " << _temp_buf[1]<<std::endl ;
-          //std::cout << "linear enc[2]: " << _temp_buf[2]<<std::endl ;
-          //std::cout << "linear enc[3]: " << _temp_buf[3]<<std::endl ;
-          //std::cout << "linear enc[4]: " << _temp_buf[4]<<std::endl ;
-          //std::cout << "linear enc[5]: " << _temp_buf[5]<<std::endl ;
-          //std::cout << "linear enc[6]: " << _temp_buf[6]<<std::endl ;
-          //std::cout << "linear enc[7]: " << _temp_buf[7]<<std::endl ;
-          //std::cout << "linear enc[8]: " << _temp_buf[8]<<std::endl ;
-          //std::cout << "linear enc: " << _temp_buf<<std::endl ;
-          //std::cout << "size of: " << sizeof(_read_buf)<<std::endl ;
-      if(_encoder_plus_minus_state == 0)
-        {
-          for(int i = 0; i<64 ; i++)
-        {
-      if( i < _check_encoder_size)
-        {
-          _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
-        }
-      }
-      _linear_present_position = -_temp_present_position;
-      _temp_present_position = 0;
-      _encoder_plus_minus_state = 1;
-    }
-    else 
-    {
-      for(int i = 0; i<64 ; i++)
-    {
-      if( i <= _check_encoder_size)
-      {
-        _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
-      }
-    }
-    _linear_present_position = _temp_present_position;
-    _temp_present_position = 0;
-    }
+  //         if(_temp_buf[i] == '-')
+  //           {
+  //             _encoder_plus_minus_state = 0;
+  //           }
+  //         if(_temp_buf[i] >= '0' && _temp_buf[i] <= '9')
+  //           {
+  //             _read_state = 1;
+  //             _check_encoder_size = i;
+  //           }
+  //       }
+  //     //std::cout << "linear enc[0]: 1st : " << (int)_temp_buf[0]<<std::endl ;
+  //     if((int)_temp_buf[0] == 0)
+  //       {
+  //         _read_state = 0;
+  //       }
+  //     else if((int)_temp_buf[0] == 10)
+  //       {
+  //         _read_state = 0;
+  //       }
+  //     //std::cout << "_read_state : "<<_read_state<<std::endl ;
+  //     if (_read_state == 0)
+  //       {
+  //       }
+  //       else if (_read_state == 1)
+  //       {
+  //         //std::cout << "linear enc[0]: " << _temp_buf[0]<<std::endl ;
+  //         //std::cout << "linear enc[1]: " << _temp_buf[1]<<std::endl ;
+  //         //std::cout << "linear enc[2]: " << _temp_buf[2]<<std::endl ;
+  //         //std::cout << "linear enc[3]: " << _temp_buf[3]<<std::endl ;
+  //         //std::cout << "linear enc[4]: " << _temp_buf[4]<<std::endl ;
+  //         //std::cout << "linear enc[5]: " << _temp_buf[5]<<std::endl ;
+  //         //std::cout << "linear enc[6]: " << _temp_buf[6]<<std::endl ;
+  //         //std::cout << "linear enc[7]: " << _temp_buf[7]<<std::endl ;
+  //         //std::cout << "linear enc[8]: " << _temp_buf[8]<<std::endl ;
+  //         //std::cout << "linear enc: " << _temp_buf<<std::endl ;
+  //         //std::cout << "size of: " << sizeof(_read_buf)<<std::endl ;
+  //     if(_encoder_plus_minus_state == 0)
+  //       {
+  //         for(int i = 0; i<64 ; i++)
+  //       {
+  //     if( i < _check_encoder_size)
+  //       {
+  //         _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
+  //       }
+  //     }
+  //     _linear_present_position = -_temp_present_position;
+  //     _temp_present_position = 0;
+  //     _encoder_plus_minus_state = 1;
+  //   }
+  //   else 
+  //   {
+  //     for(int i = 0; i<64 ; i++)
+  //   {
+  //     if( i <= _check_encoder_size)
+  //     {
+  //       _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
+  //     }
+  //   }
+  //   _linear_present_position = _temp_present_position;
+  //   _temp_present_position = 0;
+  //   }
     
 
-    // send _present_position -> _present_position = 0 ;
-    for(int i = 0; i< 64; i++)
-    {
-      _temp_buf[i] = '\0';
-      _read_buf[i] = '\0';
-    }
-    break;
-  }
-  }
+  //   // send _present_position -> _present_position = 0 ;
+  //   for(int i = 0; i< 64; i++)
+  //   {
+  //     _temp_buf[i] = '\0';
+  //     _read_buf[i] = '\0';
+  //   }
+  //   break;
+  // }
+  // }
 }
 
 //   while(1)
@@ -656,6 +666,7 @@ switch (_count)
       break;
     //}
   }
+  write(_linear_serial_port, _encoder, sizeof(_encoder));
 }
 
 void Clinear::goalposition2Uchar_rel(int n)
@@ -1135,19 +1146,19 @@ void Clinear::Open_linear()
 
   // Create new termios struc, we call it 'tty' for convention
   struct termios tty;
-
+  bzero(&tty, sizeof(tty)); 
   // Read in existing settings, and handle any error
   if(tcgetattr(_linear_serial_port, &tty) != 0) {
       printf("Error %i from tcgetattr: %s\n", errno, strerror(errno));
   }
 
-  tty.c_cflag &= ~PARENB; // Clear parity bit, disabling parity (most common)
-  tty.c_cflag &= ~CSTOPB; // Clear stop field, only one stop bit used in communication (most common)
-  tty.c_cflag &= ~CSIZE; // Clear all bits that set the data size 
-  tty.c_cflag |= CS8; // 8 bits per byte (most common)
+  //tty.c_cflag &= ~PARENB; // Clear parity bit, disabling parity (most common)
+  //tty.c_cflag &= ~CSTOPB; // Clear stop field, only one stop bit used in communication (most common)
+  //tty.c_cflag &= ~CSIZE; // Clear all bits that set the data size 
+  //tty.c_cflag |= CS8; // 8 bits per byte (most common)
   //tty.c_cflag &= ~CRTSCTS; // Disable RTS/CTS hardware flow control (most common)
-  tty.c_cflag |= CREAD | CLOCAL; // Turn on READ & ignore ctrl lines (CLOCAL = 1)
-
+  //tty.c_cflag = CREAD; // Turn on READ & ignore ctrl lines (CLOCAL = 1)
+  //tty.c_cflag =  IGNPAR | ICRNL;
   //tty.c_lflag &= ~ICANON;
   //tty.c_lflag &= ~ECHO; // Disable echo
   //tty.c_lflag &= ~ECHOE; // Disable erasure
@@ -1155,30 +1166,42 @@ void Clinear::Open_linear()
   //tty.c_lflag &= ~ISIG; // Disable interpretation of INTR, QUIT and SUSP
   //tty.c_iflag &= ~(IXON | IXOFF | IXANY); // Turn off s/w flow ctrl
   //tty.c_iflag &= ~(IGNBRK|BRKINT|PARMRK|ISTRIP|INLCR|IGNCR|ICRNL); // Disable any special handling of received bytes
-  
+  //tty.c_iflag = INPCK;
+  //tty.c_oflag = 0;
   //tty.c_oflag &= ~OPOST; // Prevent special interpretation of output bytes (e.g. newline chars)
   //tty.c_oflag &= ~ONLCR; // Prevent conversion of newline to carriage return/line feed
   // tty.c_oflag &= ~OXTABS; // Prevent conversion of tabs to spaces (NOT PRESENT ON LINUX)
   // tty.c_oflag &= ~ONOEOT; // Prevent removal of C-d chars (0x004) in output (NOT PRESENT ON LINUX)
 
   //tty.c_cc[VTIME] = 0.01;    // Wait for up to 1s (10 deciseconds), returning as soon as any data is received.
-  //tty.c_cc[VMIN] = 0;
-  tty.c_lflag = ICANON;
+  //tty.c_cc[VMIN] = 1;
+  //tty.c_lflag = ICANON;
   
   // Set in/out baud rate to be 9600
   //cfsetispeed(&tty, B9600);
   cfsetospeed(&tty, B9600);
+
+  tty.c_lflag = 0;
+  bzero(tty.c_cc, NCCS);
+  tty.c_cc[VTIME] = 0; 
+  tty.c_cc[VMIN] = 1;  
+
+  tty.c_cflag = CS8 | CREAD;
+  tty.c_iflag = ICRNL;
+  tty.c_oflag = 0;
+  tty.c_lflag  =  ICANON;
+
+  tcflush(_linear_serial_port,  TCIFLUSH);//  시리얼 포트 수신 큐 초기화tcsetattr(iDev,  TCSANOW,  &stNewState);
+  tcsetattr(_linear_serial_port,  TCSANOW,  &tty);
 
   // Save tty settings, also checking for error
   if (tcsetattr(_linear_serial_port, TCSANOW, &tty) != 0) {
       printf("Error %i from tcsetattr: %s\n", errno, strerror(errno));
   }
    //write(serial_port, Enable_encoder, sizeof(Enable_encoder));
-   for(int i = 0 ; i < 9 ; i++)
-   {
-     write(_linear_serial_port, _encoder, sizeof(_encoder));
-   }
+
   write(_linear_serial_port, _velocity, sizeof(_velocity));
+  usleep(3000);
    write(_linear_serial_port, _Echo_off, sizeof(_Echo_off)); 
 }
 

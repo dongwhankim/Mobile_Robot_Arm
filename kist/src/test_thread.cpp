@@ -34,19 +34,20 @@ void *dynamixelthread(void *data)
   {
     tmpcnt++;
     RobotArm.TX();
-    //linear.read_encoder();
     if(tmpcnt == 150)
     {
+      linear.read_encoder();
       tmpcnt = 0;
       RobotArm.RX();
       //linear.goalposition2Uchar_rel(linear_goal);
     }
     if(linear_play_state == 1)
-    {
+    { 
       linear.goalposition2Uchar_rel(linear_goal);
-      usleep(3000);
-      linear.read_encoder();
-      std::cout << "position : "<<linear._linear_present_position<<std::endl ;
+      //usleep(3000);
+      //linear.read_encoder();
+      //usleep(100000);
+      //std::cout << "position : "<<linear._read_buf<<std::endl ;
       linear_play_state = 0;
       //std::cout<<Control._x_goal[0]<<std::endl;
     }
