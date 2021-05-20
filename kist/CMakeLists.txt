@@ -1,8 +1,9 @@
 # 요구 CMake 최소 버전
-CMAKE_MINIMUM_REQUIRED ( VERSION 2.4 )
-
+CMAKE_MINIMUM_REQUIRED ( VERSION 2.8 )
+ 
 # 프로젝트 이름 및 버전
 PROJECT ( "kist" )
+ 
  
 # 빌드 형상(Configuration) 및 주절주절 Makefile 생성 여부 & # 공통 컴파일러
 
@@ -15,7 +16,7 @@ add_definitions("-Wall -std=c++14")
 INCLUDE_DIRECTORIES ( include /usr/local/include/eigen3 /lib/x86_64-linux-gnu )
  
 # 공통 컴파일 옵션, 링크 옵션
-ADD_COMPILE_OPTIONS ( -g -Wall -lpthread )
+ADD_COMPILE_OPTIONS ( -g -Wall )
 SET ( CMAKE_EXE_LINKER_FLAGS "-static -Wl,--gc-sections" )
 add_subdirectory(src)
  

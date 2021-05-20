@@ -22,7 +22,8 @@ void CTrajectory::Initialize()
 
 
 void CTrajectory::reset_initial(double time0, double init_pos, double init_vel) // input 시작시간, 시작위치, 시작속도
-{//std::cout << init_pos << " :1" << std::endl;
+{
+	//std::cout << init_pos << " :1" << std::endl;
 		_time_start = time0;
 		_init_pos = init_pos;
 		_init_vel = init_vel;

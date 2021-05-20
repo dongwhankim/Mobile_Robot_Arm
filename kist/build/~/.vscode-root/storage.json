@@ -41,8 +41,7 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "닫힌 편집기 다시 열기(&&R)",
-                                    "enabled": false
+                                    "label": "닫힌 편집기 다시 열기(&&R)"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -92,11 +91,13 @@
                     },
                     {
                         "id": "workbench.action.files.save",
-                        "label": "저장(&&S)"
+                        "label": "저장(&&S)",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "다른 이름으로 저장(&&A)..."
+                        "label": "다른 이름으로 저장(&&A)...",
+                        "enabled": false
                     },
                     {
                         "id": "saveAll",
@@ -175,11 +176,13 @@
                     },
                     {
                         "id": "workbench.action.files.revert",
-                        "label": "파일 되돌리기(&&V)"
+                        "label": "파일 되돌리기(&&V)",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.closeActiveEditor",
-                        "label": "편집기 닫기(&&C)"
+                        "label": "편집기 닫기(&&C)",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.closeFolder",
@@ -228,11 +231,13 @@
                     },
                     {
                         "id": "actions.find",
-                        "label": "찾기(&&F)"
+                        "label": "찾기(&&F)",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.startFindReplaceAction",
-                        "label": "바꾸기(&&R)"
+                        "label": "바꾸기(&&R)",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -548,7 +553,8 @@
                     },
                     {
                         "id": "editor.action.toggleWordWrap",
-                        "label": "자동 줄 바꿈 설정/해제 (&&W)"
+                        "label": "자동 줄 바꿈 설정/해제 (&&W)",
+                        "enabled": false
                     },
                     {
                         "id": "editor.action.toggleMinimap",

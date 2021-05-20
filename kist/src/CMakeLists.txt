@@ -14,7 +14,8 @@
         subsrc/protocol2_packet_handler.cpp
         subsrc/trajectory.cpp
         subsrc/controller.cpp
-        subsrc/sync_read_write2.cpp
+        subsrc/dynamixel_read_write.cpp
+        subsrc/linear_read_write.cpp     
         )
         
 

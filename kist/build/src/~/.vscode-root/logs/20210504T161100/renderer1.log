@@ -1,0 +1,41 @@
+[2021-05-04 16:11:02.824] [renderer1] [error] net::ERR_NAME_NOT_RESOLVED: Error: net::ERR_NAME_NOT_RESOLVED
+    at SimpleURLLoaderWrapper.<anonymous> (electron/js2c/browser_init.js:109:6508)
+    at SimpleURLLoaderWrapper.emit (events.js:315:20)
+[2021-05-04 16:11:16.636] [renderer1] [error] net::ERR_NAME_NOT_RESOLVED: Error: net::ERR_NAME_NOT_RESOLVED
+    at SimpleURLLoaderWrapper.<anonymous> (electron/js2c/browser_init.js:109:6508)
+    at SimpleURLLoaderWrapper.emit (events.js:315:20)
+[2021-05-04 16:15:16.570] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:16:35.046] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:17:34.807] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:19:00.529] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:19:51.179] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:20:59.763] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:21:05.409] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:21:08.365] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:24:03.930] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:24:12.855] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:24:27.328] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:25:16.101] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:25:18.849] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:26:03.353] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:26:05.415] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:27:05.065] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:27:09.632] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:27:13.726] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:27:18.105] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:27:40.659] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:28:07.228] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:34:12.659] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:35:26.037] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:35:53.840] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:35:58.268] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:36:34.517] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:36:36.776] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:36:38.842] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:36:41.017] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:36:43.019] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:36:45.185] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:37:53.179] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:37:54.229] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:38:05.453] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2021-05-04 16:51:51.379] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
