@@ -32,27 +32,24 @@ void *dynamixelthread(void *data)
   //Arm2.start();
   while(1)
   {
-    tmpcnt++;
-    RobotArm.TX();
-    if(tmpcnt == 150)
+    //tmpcnt++;
+    tmpcnt2++;
+    RobotArm.TXRX();
+    // if(tmpcnt == 150)
+    // {
+    //   tmpcnt = 0;
+    //   RobotArm.RX();
+    // }
+    if(tmpcnt2 == 200)
     {
       linear.read_encoder();
-      tmpcnt = 0;
-      RobotArm.RX();
-      //linear.goalposition2Uchar_rel(linear_goal);
+      tmpcnt2 = 0;
     }
     if(linear_play_state == 1)
     { 
-      linear.goalposition2Uchar_rel(linear_goal);
-      //usleep(3000);
-      //linear.read_encoder();
-      //usleep(100000);
-      //std::cout << "position : "<<linear._read_buf<<std::endl ;
+      linear.goalposition2Uchar(Control._x_goal[0]+1000000);
       linear_play_state = 0;
-      //std::cout<<Control._x_goal[0]<<std::endl;
     }
-        //RobotArm.TXRX();
-    //std::cout<<Control._x_goal[0]<<std::endl;
     usleep(10);
   }
   RobotArm.end();
@@ -132,16 +129,27 @@ int main()
         //linear.read_encoder();
         Control.get_present_position(RobotArm._dxl_present_position);
         //Control.get_linear_present_position(linear._linear_present_position);
+
         Control.Finite_State_Machine(now_time2);
         RobotArm.goalposition(Control._goal_position);
         linear_goal = Control._x_goal[0];
+
         if(old_linear_goal == linear_goal)
         {       
         }
+
         else
         {
           linear_play_state = 1;
         }
+
+        if(Control._new_mode == 1)
+        {
+          linear.homing();
+          Control._new_mode = 0;
+          std::cout<<Control._new_mode<<std::endl;
+        }
+        
         //std::cout<<linear_goal<<std::endl;
         //linear.Communication(linear_goal);
   }

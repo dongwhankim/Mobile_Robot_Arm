@@ -18,8 +18,6 @@ public:
 	void Finite_State_Machine(double time);
 	void get_present_position(int32_t* dxl_present_position);
 	void get_linear_present_position(int linear_present_position);
-	void check_RX_RobotArm(int check);
-	//void check_RX_RobotArm2(int check);
 	//void SetPosition(double target[], double time, double duration);
 	// void SetTorque(double target[], double time, double duration);
 
@@ -47,7 +45,6 @@ private:
 	int getValue();
 	int getValue2();
 	
-	//int _new_mode2;
 	double RANGE(double angle);
 	double _length_link1 ;
 	double _length_link2 ;
@@ -56,6 +53,7 @@ private:
 
 	double _now_time4;
 	int _box, _table;
+	int _cnt;
 
 
 };

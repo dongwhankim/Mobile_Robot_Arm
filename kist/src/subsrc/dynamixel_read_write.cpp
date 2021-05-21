@@ -420,7 +420,7 @@ void CRobot_Arm_TR::TXRX()
        {
          fprintf(stderr, "[ID:%03d] groupSyncRead getdata failed", DXL4_ID);
        }
-     //printf("[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d \t[ID:%03d] GoalPos:%03d  PresPos:%03d \n", DXL1_ID, _dxl_goal_position[1], _dxl_present_position[1], DXL2_ID, _dxl_goal_position[2], _dxl_present_position[2], DXL3_ID, _dxl_goal_position[3], _dxl_present_position[3], DXL4_ID, _dxl_goal_position[4], _dxl_present_position[4]);
+     printf("[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d \t[ID:%03d] GoalPos:%03d  PresPos:%03d \n", DXL1_ID, _dxl_goal_position[1], _dxl_present_position[1], DXL2_ID, _dxl_goal_position[2], _dxl_present_position[2], DXL3_ID, _dxl_goal_position[3], _dxl_present_position[3], DXL4_ID, _dxl_goal_position[4], _dxl_present_position[4]);
 }
 
 void CRobot_Arm_TR::TX()
@@ -538,6 +538,8 @@ void CRobot_Arm_TR::RX()
      _dxl_present_position[3] = groupSyncRead.getData(DXL3_ID, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
      _dxl_present_position[4] = groupSyncRead.getData(DXL4_ID, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
      //printf("[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d \t[ID:%03d] GoalPos:%03d  PresPos:%03d \n", DXL1_ID, _dxl_goal_position[1], _dxl_present_position[1], DXL2_ID, _dxl_goal_position[2], _dxl_present_position[2], DXL3_ID, _dxl_goal_position[3], _dxl_present_position[3], DXL4_ID, _dxl_goal_position[4], _dxl_present_position[4]);
+      std::cout<<" error1 : " << _dxl_goal_position[1]-_dxl_present_position[1] <<" error2 : " << _dxl_goal_position[2]-_dxl_present_position[2] <<" error3 : " << _dxl_goal_position[3]-_dxl_present_position[3] <<" error4 : " << _dxl_goal_position[4]-_dxl_present_position[4] <<std::endl;
+
 }
 
 

@@ -1,6 +1,3 @@
-
-
-
 // C library headers
 #include <stdio.h>
 #include <string.h>
@@ -11,7 +8,7 @@
 #include <pthread.h>
 // Linux headers
 #include <fcntl.h> // Contains file controls like O_RDWR
-#include <errno.h> // Error integer and strerror() function
+#include <errno.h> // Error integer and strerror() function0
 #include <termios.h> // Contains POSIX terminal control definitions
 #include <unistd.h> // write(), read(), close()
 
@@ -27,22 +24,18 @@ Clinear::Clinear()
 {		  
   _linear_serial_port = 0;
   _count = 0;
+  _encoder_count = 0;
   _t = 0;
-  _encoder_cnt = 0;
-  _check_encoder_size = 0;
   _temp_present_position = 0;
-  _linear_present_position = 0;
-  _encoder_plus_minus_state = 1; // 0 = minus , 1 = plus
+  _plus_minus_state = 0;
+  _encoder_plus_minus_state = 1;
+  _tmpbuf = 1000000;
+  _tmpbuf_old = 1000000;
   _read_state = 0;
-  _temp_state = 0;
-  iRet = 0;
-
-  for(int i = 0; i< 64; i++)
+  for(int i = 0; i< 255; i++)
       {
         _read_buf[i] = '\0';
-        _temp_buf[i] = '\0';
       }
-
 }
 Clinear::~Clinear()
 {
@@ -55,217 +48,81 @@ void Clinear::homing()
 
 void Clinear::read_encoder()
 { 
-  read(_linear_serial_port,  _read_buf,  255);
-  printf("[%s]\n",_read_buf);
-  tcflush(_linear_serial_port,  TCIFLUSH);//  시리얼 포트 수신 큐 초기화tcsetattr(iDev,  TCSANOW,  &stNewState);
+  //std::cout<<"read_buf : "<<_read_buf;
+  if(((_read_buf[0] >= '0' && _read_buf[0] <= '9') || _read_buf[0] <= '-') && (int)_read_buf[0] != 10)
+    {
+      _read_state = 1; 
+      //std::cout<<"read[0] : "<<(int)_read_buf[0] << std::endl;   
+    }
+  else
+    {
+      _read_state = 0;
+    }
+    //std::cout<<_read_state <<std::endl;
+  if(_read_state == 1)
+    {
+
+    _tmpbuf = 0;
+    _encoder_count = 0;
+    // rkqt cpzm
+    for(int i = 0 ; i<255 ; i++)
+    {
+      if(_read_buf[i] == '-')
+      {
+        _encoder_plus_minus_state = 0; // minus
+      }
+      else
+      {
+        _encoder_plus_minus_state = 1; // plus
+      }
+      if(_read_buf[i] >= '0' && _read_buf[i] <= '9')
+      {
+      _encoder_count = i;
+      //_tmpbuf = _tmpbuf + char2int(_read_buf[i]) * pow(10,i);
+      //std::cout<<"i = " << i << "tmpbuf = " <<_tmpbuf<<std::endl;
+      }
+    }
+
+    if(_encoder_plus_minus_state == 1)
+    {
+      for(int i = 0; i<_encoder_count+1 ; i++)
+      {
+        _tmpbuf = _tmpbuf + char2int(_read_buf[i]) * pow(10, _encoder_count-i);
+      }
+    }
+  
+    else if (_encoder_plus_minus_state == 0)
+    {
+      for(int i = 1; i<_encoder_count+1 ; i++)
+      {
+        _tmpbuf = _tmpbuf + char2int(_read_buf[i]) * pow(10, _encoder_count);
+      }
+      _tmpbuf = -_tmpbuf;
+    }
+  //std::cout<<"encoder_cnt : " <<_encoder_count<<std::endl;
+
+    if(abs(_tmpbuf_old-_tmpbuf) >  _tmpbuf_old/2)   //2*pow(10,_encoder_count-1))
+    {}
+    else
+    {
+      _tmpbuf_old = _tmpbuf;
+    }
+  }
+  //std::cout<<"tmp : " <<_tmpbuf<<std::endl;
+  //std::cout<<"tmpold : " <<_tmpbuf_old<<std::endl;
+
+    for(int i = 0; i< 255; i++)
+      {
+        _read_buf[i] = '\0';
+      }
+  tcflush(_linear_serial_port,  TCIFLUSH);//  시리얼 포트 수신 큐 초기화
   write(_linear_serial_port, _encoder, sizeof(_encoder));
-  
-  //tcsetattr(_linear_serial_port,  TCSANOW,  &tty);
-  //usleep(3000);
-  //read(_linear_serial_port, _read_buf, sizeof(_read_buf));
-  
-  // while(1)
-  // {
-  //     if(_temp_state == 0)
-  //       {
-  //         write(_linear_serial_port, _encoder, sizeof(_encoder));
-  //         _temp_state = 1;
-  //       }
-        
-  //       //_encoder_cnt = 0;
- 
-  //       //_encoder_cnt++;
-  //       read(_linear_serial_port, _read_buf, sizeof(_read_buf));
-  //       //usleep(100000);
-
-  //     for (int i = 0; i<64 ; i++)
-  //       {
-  //         _temp_buf[i] = _read_buf[i];
-          
-  //         if(_temp_buf[i] == '-')
-  //           {
-  //             _encoder_plus_minus_state = 0;
-  //           }
-  //         if(_temp_buf[i] >= '0' && _temp_buf[i] <= '9')
-  //           {
-  //             _read_state = 1;
-  //             _check_encoder_size = i;
-  //           }
-  //       }
-  //     //std::cout << "linear enc[0]: 1st : " << (int)_temp_buf[0]<<std::endl ;
-  //     if((int)_temp_buf[0] == 0)
-  //       {
-  //         _read_state = 0;
-  //       }
-  //     else if((int)_temp_buf[0] == 10)
-  //       {
-  //         _read_state = 0;
-  //       }
-  //     //std::cout << "_read_state : "<<_read_state<<std::endl ;
-  //     if (_read_state == 0)
-  //       {
-  //       }
-  //       else if (_read_state == 1)
-  //       {
-  //         //std::cout << "linear enc[0]: " << _temp_buf[0]<<std::endl ;
-  //         //std::cout << "linear enc[1]: " << _temp_buf[1]<<std::endl ;
-  //         //std::cout << "linear enc[2]: " << _temp_buf[2]<<std::endl ;
-  //         //std::cout << "linear enc[3]: " << _temp_buf[3]<<std::endl ;
-  //         //std::cout << "linear enc[4]: " << _temp_buf[4]<<std::endl ;
-  //         //std::cout << "linear enc[5]: " << _temp_buf[5]<<std::endl ;
-  //         //std::cout << "linear enc[6]: " << _temp_buf[6]<<std::endl ;
-  //         //std::cout << "linear enc[7]: " << _temp_buf[7]<<std::endl ;
-  //         //std::cout << "linear enc[8]: " << _temp_buf[8]<<std::endl ;
-  //         //std::cout << "linear enc: " << _temp_buf<<std::endl ;
-  //         //std::cout << "size of: " << sizeof(_read_buf)<<std::endl ;
-  //     if(_encoder_plus_minus_state == 0)
-  //       {
-  //         for(int i = 0; i<64 ; i++)
-  //       {
-  //     if( i < _check_encoder_size)
-  //       {
-  //         _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
-  //       }
-  //     }
-  //     _linear_present_position = -_temp_present_position;
-  //     _temp_present_position = 0;
-  //     _encoder_plus_minus_state = 1;
-  //   }
-  //   else 
-  //   {
-  //     for(int i = 0; i<64 ; i++)
-  //   {
-  //     if( i <= _check_encoder_size)
-  //     {
-  //       _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
-  //     }
-  //   }
-  //   _linear_present_position = _temp_present_position;
-  //   _temp_present_position = 0;
-  //   }
-    
-
-  //   // send _present_position -> _present_position = 0 ;
-  //   for(int i = 0; i< 64; i++)
-  //   {
-  //     _temp_buf[i] = '\0';
-  //     _read_buf[i] = '\0';
-  //   }
-  //   break;
-  // }
-  // }
+  read(_linear_serial_port,  _read_buf,  255);
 }
 
-//   while(1)
-//   {
-//   //if (_encoder_cnt == 4)
-//   //{
-//     if(_temp_state == 0)
-//     {
-//       write(_linear_serial_port, _encoder, sizeof(_encoder));
-//       _temp_state = 1;
-//     }
-//       write(_linear_serial_port, _encoder, sizeof(_encoder));
-//     //_encoder_cnt = 0;
- 
-//   //_encoder_cnt++;
-//   read(_linear_serial_port, _read_buf, sizeof(_read_buf));
-//   //usleep(100000);
 
-//   for (int i = 0; i<10 ; i++)
-//   {
-//     _temp_buf[i] = _read_buf[i];
-//     if(_temp_buf[i] == '-')
-//     {
-//       _encoder_plus_minus_state = 0;
-//     }
-//     if(_temp_buf[i] >= '0' && _temp_buf[i] <= '9')
-//     {
-//       _read_state = 1;
-//       _check_encoder_size = i;
-//     }
-//   }
-//   //std::cout << "linear enc[0]: 1st : " << (int)_temp_buf[0]<<std::endl ;
-//   if((int)_temp_buf[0] == 0)
-//       {
-//         _read_state = 0;
-//       }
-//   else if((int)_temp_buf[0] == 10)
-//       {
-//         _read_state = 0;
-//       }
-// //std::cout << "_read_state : "<<_read_state<<std::endl ;
-//   if (_read_state == 0)
-//   {
-//   }
-//   else if (_read_state == 1)
-//   {
-//     //std::cout << "linear enc[0]: " << _temp_buf[0]<<std::endl ;
-//     //std::cout << "linear enc[1]: " << _temp_buf[1]<<std::endl ;
-//     //std::cout << "linear enc[2]: " << _temp_buf[2]<<std::endl ;
-//     //std::cout << "linear enc[3]: " << _temp_buf[3]<<std::endl ;
-//     //std::cout << "linear enc[4]: " << _temp_buf[4]<<std::endl ;
-//     //std::cout << "linear enc[5]: " << _temp_buf[5]<<std::endl ;
-//     //std::cout << "linear enc[6]: " << _temp_buf[6]<<std::endl ;
-//     //std::cout << "linear enc[7]: " << _temp_buf[7]<<std::endl ;
-//     //std::cout << "linear enc[8]: " << _temp_buf[8]<<std::endl ;
-//     //std::cout << "linear enc: " << _temp_buf<<std::endl ;
-//     //std::cout << "size of: " << sizeof(_read_buf)<<std::endl ;
-//     if(_encoder_plus_minus_state == 0)
-//     {
-//     for(int i = 0; i<10 ; i++)
-//     {
-//       if( i < _check_encoder_size)
-//       {
-//         _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
-//       }
-//     }
-//     _linear_present_position = -_temp_present_position;
-//     _temp_present_position = 0;
-//     _encoder_plus_minus_state = 1;
-//     }
-//     else 
-//     {
-//       for(int i = 0; i<10 ; i++)
-//     {
-//       if( i <= _check_encoder_size)
-//       {
-//         _temp_present_position = _temp_present_position + char2int(_temp_buf[i])*pow(10,_check_encoder_size-i);
-//       }
-//     }
-//     _linear_present_position = _temp_present_position;
-//     _temp_present_position = 0;
-//     }
-//     std::cout << "position : "<<_linear_present_position<<std::endl ;
-
-//     // send _present_position -> _present_position = 0 ;
-//     for(int i = 0; i< 10; i++)
-//     {
-//       _temp_buf[i] = '\0';
-//       _read_buf[i] = '\0';
-//     }
-//     break;
-//   }
-//   }
-//}
-
-// int getch()
-// {
-// 	int check;
-// 	std::cin >> check;
-// 	return check;
-// }
-
-  void Clinear::goalposition2Uchar(int n)
+void Clinear::goalposition2Uchar(int n)
   {
-    //std::cout<<_read_state<<std::endl;
-    // if(_read_state == 0)
-    // {
-    //   //read_encoder();
-    // }
-    // else if(_read_state == 1)
-    // {
-      //read_encoder();
   _count = 0;
   _plus_minus_state = 1;
   _t = n;
@@ -671,14 +528,6 @@ switch (_count)
 
 void Clinear::goalposition2Uchar_rel(int n)
   {
-    //std::cout<<_read_state<<std::endl;
-    // if(_read_state == 0)
-    // {
-    //   //read_encoder();
-    // }
-    // else if(_read_state == 1)
-    // {
-      //read_encoder();
   _count = 0;
   _plus_minus_state = 1;
   _t = n;
@@ -1148,8 +997,9 @@ void Clinear::Open_linear()
   struct termios tty;
   bzero(&tty, sizeof(tty)); 
   // Read in existing settings, and handle any error
-  if(tcgetattr(_linear_serial_port, &tty) != 0) {
-      printf("Error %i from tcgetattr: %s\n", errno, strerror(errno));
+  if(tcgetattr(_linear_serial_port, &tty) != 0) 
+  {
+    printf("Error %i from tcgetattr: %s\n", errno, strerror(errno));
   }
 
   //tty.c_cflag &= ~PARENB; // Clear parity bit, disabling parity (most common)
@@ -1179,15 +1029,16 @@ void Clinear::Open_linear()
   
   // Set in/out baud rate to be 9600
   //cfsetispeed(&tty, B9600);
+
   cfsetospeed(&tty, B9600);
 
-  tty.c_lflag = 0;
+  //tty.c_lflag = 0;
   bzero(tty.c_cc, NCCS);
   tty.c_cc[VTIME] = 0; 
   tty.c_cc[VMIN] = 1;  
 
   tty.c_cflag = CS8 | CREAD;
-  tty.c_iflag = ICRNL;
+  tty.c_iflag = ICRNL | INPCK | IGNPAR;
   tty.c_oflag = 0;
   tty.c_lflag  =  ICANON;
 
@@ -1195,19 +1046,15 @@ void Clinear::Open_linear()
   tcsetattr(_linear_serial_port,  TCSANOW,  &tty);
 
   // Save tty settings, also checking for error
-  if (tcsetattr(_linear_serial_port, TCSANOW, &tty) != 0) {
-      printf("Error %i from tcsetattr: %s\n", errno, strerror(errno));
+  if (tcsetattr(_linear_serial_port, TCSANOW, &tty) != 0) 
+  {
+    printf("Error %i from tcsetattr: %s\n", errno, strerror(errno));
   }
    //write(serial_port, Enable_encoder, sizeof(Enable_encoder));
 
   write(_linear_serial_port, _velocity, sizeof(_velocity));
   usleep(3000);
-   write(_linear_serial_port, _Echo_off, sizeof(_Echo_off)); 
-}
-
-void Clinear::Communication(int goal_position)
- {
-    goalposition2Uchar(goal_position);
+  write(_linear_serial_port, _Echo_off, sizeof(_Echo_off));
 }
 
 int Clinear::char2int(char a)

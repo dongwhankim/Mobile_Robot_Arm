@@ -27,7 +27,7 @@ CController::CController()
 	_cos_q2 = 0.0 , _sin_q2_1 = 0.0 , _sin_q2_2 = 0.0 , _q2_1 = 0.0 , _q2_2 = 0.0 , _k1_1 = 0.0 , _k2_2 = 0.0 , _gamma_2 = 0.0 , _q1_1 = 0.0 , _q1_2 = 0.0 , _q3_1 = 0.0 , _q3_2 = 0.0 ;
 	_linear_goal_position = 0;
 	_new_mode = 0;
-	//_new_mode2 = 0;
+	_cnt = 0;
 	for(int i = 0 ; i< 5 ; i ++)
 	{
 		_q[i] = 0.0 ; 
@@ -77,22 +77,6 @@ int CController::getValue2()
 	return Table_Number;
 
 }
-
-void CController::check_RX_RobotArm(int check)
-{
-	if(check == 1)
-	{
-		_new_mode = 0;
-	}
-}
-
-// void CController::check_RX_RobotArm2(int check)
-// {
-// 	if(check == 1)
-// 	{
-// 		_new_mode2 = 0;
-// 	}
-// }
 
 void CController::inverseKin(double x, double y, double alpha)
 {
@@ -201,9 +185,7 @@ void CController::Finite_State_Machine(double time)
 	      	{
 			    //_box = getValue(); //박스의 위치
 			    CurrentState = ready; // state를 바꿈
-            	_mode = 0;
-				_new_mode++;
-				
+            	_mode = 0;				
 			    break;
 		    }
 		      _rev = false;
@@ -219,7 +201,8 @@ void CController::Finite_State_Machine(double time)
           //inverseKin(_x_goal[1] , _x_goal[2] , _x_goal[3] );
 				//Trajectory[0].update_time(time);
                 //Trajectory[0].update_goal(_x_goal[0], 0, _now_time4 + 5);
-                //_linear_goal_position = Trajectory[0].position_cubicSpline();	
+                //_linear_goal_position = Trajectory[0].position_cubicSpline();
+					
 
           	for(int i = 1 ; i<5 ; i++)
             {
@@ -231,9 +214,10 @@ void CController::Finite_State_Machine(double time)
             }
 			//std::cout << "test " << _goal_position[4] << std::endl;
 			 //Arm.goalposition(_goal_position);
+				
+				break;
         }
-		      break;
-  
+		      
   		case ready: // 해당 박스 위로 준비자세
    			if (_mode == 0)
         	{
@@ -243,6 +227,7 @@ void CController::Finite_State_Machine(double time)
               		Trajectory[i].reset_initial(time, _dxl_present_position[i], 0);
            		}
         		_mode = 1;
+				break;
         	}
 		//_table = getValue2();
     		else 
@@ -258,11 +243,12 @@ void CController::Finite_State_Machine(double time)
 					// if (_box == 1 || _box == 3)
 					// {
 					_rev = false;
-           			_x_goal[0] = -2000000; // 
+           			_x_goal[0] = 2000000; // 
 		       		_x_goal[1] = 30000;
 		       		_x_goal[2] = 120000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 		       		_x_goal[3] = 78000;
            			_x_goal[4] = 745;
+
 					//inverseKin( _x_goal[1] , _x_goal[2] , _x_goal[3] ) ;
           			for(int i = 1 ; i<5 ; i++)
              		{
@@ -306,6 +292,7 @@ void CController::Finite_State_Machine(double time)
               		Trajectory[i].reset_initial(time, _dxl_present_position[i], 0);
            		}
         		_mode = 1;
+				break;
         	}
 			if (time >= _now_time4 + 5)
 			{
@@ -317,7 +304,7 @@ void CController::Finite_State_Machine(double time)
 			{	//std::cout << "time : " << time << std::endl;
 				if (_box == 1) // 1번(우하단 도시락)
 				{
-					_x_goal[0] = -1000000; // 
+					_x_goal[0] = 1000000; // 
 		       		_x_goal[1] = 74000;
 		       		_x_goal[2] = 155000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 		       		_x_goal[3] = 74000;
@@ -340,7 +327,7 @@ void CController::Finite_State_Machine(double time)
 
 				else if (_box == 2) // 2번(좌하단 도시락)
 				{
-					_x_goal[0] = -1000000; // 
+					_x_goal[0] = 1000000; // 
 		    	   	_x_goal[1] = 74000;
 			       	_x_goal[2] = 155000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			       	_x_goal[3] = 74000;
@@ -359,7 +346,7 @@ void CController::Finite_State_Machine(double time)
 				}
 				else if (_box == 3) // 3번(우상단 도시락)
 				{
-					_x_goal[0] = -1000000; // 
+					_x_goal[0] = 1000000; // 
 		    	   	_x_goal[1] = 74000;
 			       	_x_goal[2] = 155000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			       	_x_goal[3] = 74000;
@@ -378,12 +365,11 @@ void CController::Finite_State_Machine(double time)
 				}
 				else  // 4번(좌상단 도시락)
 				{
-					_x_goal[0] = -1000000; // 
+					_x_goal[0] = 1000000; // 
 		    	   	_x_goal[1] = 74000;
 			       	_x_goal[2] = 155000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			       	_x_goal[3] = 74000;
     	       		_x_goal[4] = 0;
-
 					Trajectory[0].update_time(time);
                 	Trajectory[0].update_goal(_x_goal[0], 0, _now_time4 + 5);
                 	_linear_goal_position = Trajectory[0].position_cubicSpline();
@@ -409,6 +395,7 @@ void CController::Finite_State_Machine(double time)
               		Trajectory[i].reset_initial(time, _dxl_present_position[i], 0);
            		}
         		_mode = 1;
+				break;
   			}
 			if (time >= _now_time4 + 10)
 			{
@@ -429,12 +416,14 @@ void CController::Finite_State_Machine(double time)
            			}
 		  			// std::cout << "nowtime4 " << _now_time4 << std::endl;   
            			_mode2 = 1;
+					break;
       			}
-		       	_x_goal[0] = -4000000; // 
+		       	_x_goal[0] = 2000000; // 
 		    	_x_goal[1] = 74000;
 			    _x_goal[2] = 155000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			    _x_goal[3] = 74000;
     	       	_x_goal[4] = 0;
+				
 
 				Trajectory[0].update_time(time);
                 Trajectory[0].update_goal(_x_goal[0], 0, _now_time4 + 10);
@@ -482,6 +471,7 @@ void CController::Finite_State_Machine(double time)
               		Trajectory[i].reset_initial(time, _dxl_present_position[i], 0);
            		}
         		_mode = 1;
+				break;
   			}
 			if (time >= _now_time4 + 5)
 			{
@@ -494,12 +484,12 @@ void CController::Finite_State_Machine(double time)
 			{
 				if (_box == 1 || _box == 3) // 우측 도시락을 우측 테이블에 놓는 경우
 				{
-					_x_goal[0] = 0; // 
+					_x_goal[0] = 1000000; // 
 		    		_x_goal[1] = 30000;
 			    	_x_goal[2] = 60000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			    	_x_goal[3] = 74000;
     	       		_x_goal[4] = 745;
-
+				
 					Trajectory[0].update_time(time);
                 	Trajectory[0].update_goal(_x_goal[0], 0, _now_time4 + 5);
                 	_linear_goal_position = Trajectory[0].position_cubicSpline();
@@ -516,7 +506,7 @@ void CController::Finite_State_Machine(double time)
 				else // 좌측 도시락을 우측 테이블에 놓는 경우
 				{
 					_rev = false;
-					_x_goal[0] = 0; // 
+					_x_goal[0] = 1000000; // 
 		    		_x_goal[1] = 30000;
 			    	_x_goal[2] = 60000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			    	_x_goal[3] = 74000;
@@ -541,7 +531,7 @@ void CController::Finite_State_Machine(double time)
 				if (_box == 1 || _box == 3) // 우측 도시락을 좌측 테이블에 놓는 경우
 				{
 					_rev = true;
-					_x_goal[0] = 0; // 
+					_x_goal[0] = 1000000; // 
 		    		_x_goal[1] = 30000;
 			    	_x_goal[2] = 60000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			    	_x_goal[3] = 74000;
@@ -562,7 +552,7 @@ void CController::Finite_State_Machine(double time)
 				}
 				else // 좌측 도시락을 좌측 테이블에 놓는 경우
 				{
-					_x_goal[0] = 0; // 
+					_x_goal[0] = 1000000; // 
 		    		_x_goal[1] = 30000;
 			    	_x_goal[2] = 60000; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 			    	_x_goal[3] = 74000;
@@ -592,6 +582,7 @@ void CController::Finite_State_Machine(double time)
               		Trajectory[i].reset_initial(time, _dxl_present_position[i], 0);
            		}
         		_mode = 1;
+				break;
   			}
 			if (time >= _now_time4 + 5)
 			{
@@ -652,7 +643,7 @@ void CController::Finite_State_Machine(double time)
 	           			_mode2 = 1;
       				}
 					_rev = false;
-			    	_x_goal[0] = -4000000; // 
+			    	_x_goal[0] = -1000000; // 
 		       		_x_goal[1] = 0;
 		       		_x_goal[2] = 0; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
 		       		_x_goal[3] = 0 ;
@@ -671,10 +662,10 @@ void CController::Finite_State_Machine(double time)
              		}
 					break;
 				}
-					_x_goal[0] = -4000001; // 
+					_x_goal[0] = 0; // 
 		       		_x_goal[1] = 0;
 		       		_x_goal[2] = 0; // 0.175가 계산상 맞지만 165가 simulation상 맞음 why??
-		       		_x_goal[3] = 0 ;
+		       		_x_goal[3] = 0;
 	           		_x_goal[4] = 0;
 
 					Trajectory[0].update_time(time);
