@@ -1,0 +1,6 @@
+{
+    "cmake.configureOnOpen": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
+}
