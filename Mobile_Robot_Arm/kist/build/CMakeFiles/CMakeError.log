@@ -1,0 +1,37 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/kist/Mobile_Robot-main/kist/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_56b4c/fast"
+make[1]: 디렉터리 '/home/kist/Mobile_Robot-main/kist/build/CMakeFiles/CMakeTmp' 들어감
+/usr/bin/make -f CMakeFiles/cmTC_56b4c.dir/build.make CMakeFiles/cmTC_56b4c.dir/build
+make[2]: 디렉터리 '/home/kist/Mobile_Robot-main/kist/build/CMakeFiles/CMakeTmp' 들어감
+Building C object CMakeFiles/cmTC_56b4c.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_56b4c.dir/CheckSymbolExists.c.o   -c /home/kist/Mobile_Robot-main/kist/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_56b4c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_56b4c.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_56b4c.dir/CheckSymbolExists.c.o  -o cmTC_56b4c 
+CMakeFiles/cmTC_56b4c.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_56b4c.dir/build.make:97: recipe for target 'cmTC_56b4c' failed
+make[2]: *** [cmTC_56b4c] Error 1
+make[2]: 디렉터리 '/home/kist/Mobile_Robot-main/kist/build/CMakeFiles/CMakeTmp' 나감
+Makefile:126: recipe for target 'cmTC_56b4c/fast' failed
+make[1]: *** [cmTC_56b4c/fast] Error 2
+make[1]: 디렉터리 '/home/kist/Mobile_Robot-main/kist/build/CMakeFiles/CMakeTmp' 나감
+
+File /home/kist/Mobile_Robot-main/kist/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

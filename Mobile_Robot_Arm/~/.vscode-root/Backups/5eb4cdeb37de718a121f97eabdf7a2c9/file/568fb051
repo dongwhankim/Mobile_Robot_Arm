@@ -1,0 +1,57 @@
+file:///home/kist/Mobile_Robot-main/kist/include/controller.h {"mtime":1620104819371,"ctime":1620091382484,"size":1190,"etag":"36qjfobmh17c","orphaned":false}
+#pragma once // ?
+#ifndef __CONTROLLER_H //?
+#define __CONTROLLER_H //?
+#include <iostream>
+#include <Eigen/Dense>
+using namespace std;
+using namespace Eigen;
+
+
+
+class CController
+{
+public:
+	CController();
+	virtual ~CController(); //	
+
+	void inverseKin(double x, double y, double alpha); // inverse Kinematics
+	void Finite_State_Machine(double time);
+	void get_present_position(int32_t* dxl_present_position);
+	//void SetPosition(double target[], double time, double duration);
+	// void SetTorque(double target[], double time, double duration);
+
+	double RANGE(double angle);
+	double a ;
+	double b ;
+	double c ;
+	bool rev;
+
+	
+	double x_goal[4];
+	int32_t _dxl_present_position[5];
+	int dxl_goal_position[5];
+	
+    double now_time4;
+	int state, box, table;
+	bool mode;
+	bool mode2;
+
+
+public:
+	// VectorXd _torque;
+	// VectorXd _q; //joint angle vector
+	// VectorXd _qdot; //joint velocity vector
+	double q[4],z,x_,y_, gamma_1, k1_1, k2_1;
+
+private:
+	double cos_q2, sin_q2_1, sin_q2_2, q2_1, q2_2, k1_2, k2_2, gamma_2, q1_1, q1_2, q3_1, q3_2;
+
+	// VectorXd _qdes; //desired joint angle vector
+	// VectorXd _qdotdes; //desired joint velocity vector
+	int getValue();
+	int getValue2();
+
+};
+
+#endif

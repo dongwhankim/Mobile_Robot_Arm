@@ -1,0 +1,1 @@
+g++  -m64  -static -Wl,--gc-sections -rdynamic CMakeFiles/test.dir/test.cpp.o  -o test 
