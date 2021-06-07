@@ -441,6 +441,24 @@ void CRobot_Arm_TR::TXRX()
 
 void CRobot_Arm_TR::TX()
 {
+  for(int i = 1; i<4 ; i++)
+  {
+    _profile_velocity[i] = 2*(_dxl_goal_position[i]- _dxl_present_position[i]) / 810 ; // t2 = 4s
+    _profile_acceleration[i] = _profile_velocity[i] * 0.6 ;  // t1 = 1s
+  }
+  _profile_velocity[4] = 2*(_dxl_goal_position[4]- _dxl_present_position[4]) / 810 ;
+    _profile_acceleration[4] = _profile_velocity[4] * 0.6 ;
+
+
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, PROFILE_VELOCITY,  _profile_velocity[1], &_dxl_error);
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, PROFILE_ACCELERATION,  _profile_acceleration[1], &_dxl_error);
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, PROFILE_VELOCITY,  _profile_velocity[2], &_dxl_error);
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, PROFILE_ACCELERATION,  _profile_acceleration[2], &_dxl_error);
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL3_ID, PROFILE_VELOCITY,  _profile_velocity[3], &_dxl_error);
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL3_ID, PROFILE_ACCELERATION,  _profile_acceleration[3], &_dxl_error);
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL4_ID, PROFILE_VELOCITY,  _profile_velocity[4], &_dxl_error);
+     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL4_ID, PROFILE_ACCELERATION,  _profile_acceleration[4], &_dxl_error);
+
      _param_goal_position1[0] = DXL_LOBYTE(DXL_LOWORD(_dxl_goal_position[1]));
      _param_goal_position1[1] = DXL_HIBYTE(DXL_LOWORD(_dxl_goal_position[1]));
      _param_goal_position1[2] = DXL_LOBYTE(DXL_HIWORD(_dxl_goal_position[1]));
