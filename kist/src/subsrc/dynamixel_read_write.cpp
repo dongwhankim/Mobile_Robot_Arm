@@ -71,7 +71,7 @@
 #define DXL2_ID                         2                   // Dynamixel#2 ID: 2
 #define DXL3_ID                         3                   // Dynamixel#2 ID: 3
 #define DXL4_ID                         4                   // Dynamixel#2 ID: 3
-#define BAUDRATE                        2000000
+#define BAUDRATE                        115200
 #define DEVICENAME                      "/dev/ttyUSB0"      // Check which port is being used on your controller
                                                             // ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
@@ -182,10 +182,10 @@ void CRobot_Arm_TR::start()
     getch();
   }
 
-  dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, VELOCITY_PGAIN, 500, &_dxl_error);
-  dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, VELOCITY_IGAIN, 0, &_dxl_error);
-  dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, VELOCITY_PGAIN, 500, &_dxl_error);
-  dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, VELOCITY_IGAIN, 0, &_dxl_error);
+  //dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, VELOCITY_PGAIN, 500, &_dxl_error);
+  //dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, VELOCITY_IGAIN, 0, &_dxl_error);
+  //dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, VELOCITY_PGAIN, 500, &_dxl_error);
+  //dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, VELOCITY_IGAIN, 0, &_dxl_error);
 
   // Enable Dynamixel#1 Torque
   dxl_comm_result = packetHandler->write1ByteTxRx(portHandler, DXL1_ID, ADDR_PRO_TORQUE_ENABLE, TORQUE_ENABLE, &_dxl_error);
@@ -441,6 +441,28 @@ void CRobot_Arm_TR::TXRX()
 
 void CRobot_Arm_TR::TX()
 {
+  // Setting Trajectory Profile
+  for(int i = 1; i<3 ; i++)
+  {
+    _profile_velocity[i] =  600 * (_dxl_goal_position[i] - _dxl_present_position[i]) / (35 * 6075); // = 6,000,000 * (goal-present) / (profile_time2<3500ms> * resolution<607500>)
+    _profile_acceleration[i] = 0.6 * _profile_velocity[i] ; // 0.6 = 600/Profile_t1<1000ms>    
+  }
+    _profile_velocity[3] =  30000 * (_dxl_goal_position[3] - _dxl_present_position[3]) / (35 * 263187); // = 6,000,000 * (goal-present) / (profile_time2<3500ms> * resolution<526374>)
+    _profile_acceleration[3] = 0.6 * _profile_velocity[3];   // 0.6 = 600/Profile_t1<1000ms>  
+
+    _profile_velocity[4] =  60000 * (_dxl_goal_position[4] - _dxl_present_position[4]) / (35 * 4096); // = 6,000,000 * (goal-present) / (profile_time2<3500ms> * resolution<4096>)
+    _profile_acceleration[4] = 0.6 * _profile_velocity[4];   // 0.6 = 600/Profile_t1<1000ms>  
+
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL1_ID, PROFILE_VELOCITY,  abs(_profile_velocity[1]), &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL1_ID, PROFILE_ACCELERATION,  abs(_profile_acceleration[1]), &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL2_ID, PROFILE_VELOCITY,  abs(_profile_velocity[2]), &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL2_ID, PROFILE_ACCELERATION,  abs(_profile_acceleration[2]), &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL3_ID, PROFILE_VELOCITY,  abs(_profile_velocity[3]), &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL3_ID, PROFILE_ACCELERATION,  abs(_profile_acceleration[3]), &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL4_ID, PROFILE_VELOCITY,  abs(_profile_velocity[4]), &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL4_ID, PROFILE_ACCELERATION,  abs(_profile_acceleration[4]), &_dxl_error);
+
+    // goal position 
      _param_goal_position1[0] = DXL_LOBYTE(DXL_LOWORD(_dxl_goal_position[1]));
      _param_goal_position1[1] = DXL_HIBYTE(DXL_LOWORD(_dxl_goal_position[1]));
      _param_goal_position1[2] = DXL_LOBYTE(DXL_HIWORD(_dxl_goal_position[1]));
@@ -524,6 +546,7 @@ void CRobot_Arm_TR::RX()
      _dxl_present_position[3] = groupSyncRead.getData(DXL3_ID, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
      _dxl_present_position[4] = groupSyncRead.getData(DXL4_ID, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
      std::cout<<" error1 : " << _dxl_goal_position[1]-_dxl_present_position[1] <<" error2 : " << _dxl_goal_position[2]-_dxl_present_position[2] <<" error3 : " << _dxl_goal_position[3]-_dxl_present_position[3] <<" error4 : " << _dxl_goal_position[4]-_dxl_present_position[4] <<std::endl;
+     //printf("[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d \t[ID:%03d] GoalPos:%03d  PresPos:%03d \n", DXL1_ID, _dxl_goal_position[1], _dxl_present_position[1], DXL2_ID, _dxl_goal_position[2], _dxl_present_position[2], DXL3_ID, _dxl_goal_position[3], _dxl_present_position[3], DXL4_ID, _dxl_goal_position[4], _dxl_present_position[4]);
 
 }
 

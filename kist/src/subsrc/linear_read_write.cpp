@@ -1030,7 +1030,8 @@ void Clinear::Open_linear()
   // Set in/out baud rate to be 9600
   //cfsetispeed(&tty, B9600);
 
-  cfsetospeed(&tty, B9600);
+  // Set in/out baud rate to be 115200
+  cfsetospeed(&tty, B115200);
 
   //tty.c_lflag = 0;
   bzero(tty.c_cc, NCCS);

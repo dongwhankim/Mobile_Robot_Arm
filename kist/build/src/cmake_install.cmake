@@ -1,4 +1,4 @@
-# Install script for directory: /home/kist/Mobile_Robot-main/kist/src
+# Install script for directory: /home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

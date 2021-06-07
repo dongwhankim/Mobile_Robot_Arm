@@ -71,7 +71,7 @@
 #define DXL2_ID                         2                   // Dynamixel#2 ID: 2
 #define DXL3_ID                         3                   // Dynamixel#2 ID: 3
 #define DXL4_ID                         4                   // Dynamixel#2 ID: 3
-#define BAUDRATE                        2000000
+#define BAUDRATE                        115200
 #define DEVICENAME                      "/dev/ttyUSB0"      // Check which port is being used on your controller
                                                             // ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
 
@@ -83,6 +83,14 @@
 
 #define ESC_ASCII_VALUE                 0x1b
 #define PI 3.141592
+
+#define RESOLUTION_RH_P12_RN(A)        1150 
+#define RESOLUTION_PH42_S300_R         607500
+#define RESOLUTION_PM42_010_S260_R     526374
+
+#define Profile_t1                     1000  //(1s)
+#define Profile_t2                     3500  //(3.5s)
+
 
 dynamixel::PortHandler *portHandler = dynamixel::PortHandler::getPortHandler(DEVICENAME);
 dynamixel::PacketHandler *packetHandler = dynamixel::PacketHandler::getPacketHandler(PROTOCOL_VERSION);
@@ -441,23 +449,25 @@ void CRobot_Arm_TR::TXRX()
 
 void CRobot_Arm_TR::TX()
 {
-  for(int i = 1; i<4 ; i++)
+  for(int i = 1; i<3 ; i++)
   {
-    _profile_velocity[i] = 2*(_dxl_goal_position[i]- _dxl_present_position[i]) / 810 ; // t2 = 4s
-    _profile_acceleration[i] = _profile_velocity[i] * 0.6 ;  // t1 = 1s
+    _profile_velocity[i] =  6000000 * (_dxl_goal_position[i]- _dxl_present_position[i])/ (Profile_t2 * RESOLUTION_PH42_S300_R);
+    _profile_acceleration[i] = 600 * _profile_velocity[i] / Profile_t1 ;  
   }
-  _profile_velocity[4] = 2*(_dxl_goal_position[4]- _dxl_present_position[4]) / 810 ;
-    _profile_acceleration[4] = _profile_velocity[4] * 0.6 ;
+    _profile_velocity[3] =  6000000 * (_dxl_goal_position[3]- _dxl_present_position[3])/ (Profile_t2 * RESOLUTION_PM42_010_S260_R);
+    _profile_acceleration[3] = 600 * _profile_velocity[3] / Profile_t1 ;  
 
+    _profile_velocity[4] =  6000000 * (_dxl_goal_position[4]- _dxl_present_position[4])/ (Profile_t2 * RESOLUTION_RH_P12_RN);
+    _profile_acceleration[4] = 600 * _profile_velocity[4] / Profile_t1 ;  
 
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, PROFILE_VELOCITY,  _profile_velocity[1], &_dxl_error);
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL1_ID, PROFILE_ACCELERATION,  _profile_acceleration[1], &_dxl_error);
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, PROFILE_VELOCITY,  _profile_velocity[2], &_dxl_error);
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL2_ID, PROFILE_ACCELERATION,  _profile_acceleration[2], &_dxl_error);
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL3_ID, PROFILE_VELOCITY,  _profile_velocity[3], &_dxl_error);
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL3_ID, PROFILE_ACCELERATION,  _profile_acceleration[3], &_dxl_error);
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL4_ID, PROFILE_VELOCITY,  _profile_velocity[4], &_dxl_error);
-     dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, DXL4_ID, PROFILE_ACCELERATION,  _profile_acceleration[4], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL1_ID, PROFILE_VELOCITY,  _profile_velocity[1], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL1_ID, PROFILE_ACCELERATION,  _profile_acceleration[1], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL2_ID, PROFILE_VELOCITY,  _profile_velocity[2], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL2_ID, PROFILE_ACCELERATION,  _profile_acceleration[2], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL3_ID, PROFILE_VELOCITY,  _profile_velocity[3], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL3_ID, PROFILE_ACCELERATION,  _profile_acceleration[3], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL4_ID, PROFILE_VELOCITY,  _profile_velocity[4], &_dxl_error);
+     dxl_comm_result = packetHandler->write4ByteTxRx(portHandler, DXL4_ID, PROFILE_ACCELERATION,  _profile_acceleration[4], &_dxl_error);
 
      _param_goal_position1[0] = DXL_LOBYTE(DXL_LOWORD(_dxl_goal_position[1]));
      _param_goal_position1[1] = DXL_HIBYTE(DXL_LOWORD(_dxl_goal_position[1]));

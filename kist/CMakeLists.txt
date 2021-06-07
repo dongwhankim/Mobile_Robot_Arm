@@ -8,7 +8,7 @@ PROJECT ( "kist" )
 # 빌드 형상(Configuration) 및 주절주절 Makefile 생성 여부 & # 공통 컴파일러
 
 set(CMAKE_CXX_COMPILER g++)
-set(CMAKE_CXX_FLAGS "-m64")
+#set(CMAKE_CXX_FLAGS "-m64")
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 add_definitions("-Wall -std=c++14")
  

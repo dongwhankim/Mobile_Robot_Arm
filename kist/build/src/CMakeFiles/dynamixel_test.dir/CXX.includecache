@@ -66,8 +66,6 @@ port_handler.h
 packet_handler.h
 ../include/packet_handler.h
 
-../include/linear_read_write.h
-
 ../include/packet_handler.h
 Arduino.h
 -
@@ -82,41 +80,13 @@ port_handler.h
 stdint.h
 -
 
-../include/port_handler_linux.h
-port_handler.h
-../include/port_handler.h
-
-../include/protocol1_packet_handler.h
-packet_handler.h
-../include/packet_handler.h
-
-../include/protocol2_packet_handler.h
-packet_handler.h
-../include/packet_handler.h
-
 ../include/sync_read_write2.h
 
 ../include/trajectory.h
 iostream
 -
 
-/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.cpp
-controller.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/controller.h
-math.h
--
-stdio.h
--
-cmath
--
-trajectory.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/trajectory.h
-sync_read_write2.h
--
-linear_read_write.h
--
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/dynamixel_read_write.cpp
+/home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/src/subsrc/dynamixel_read_write.cpp
 fcntl.h
 -
 termios.h
@@ -144,202 +114,6 @@ dynamixel_sdk.h
 sync_read_write2.h
 -
 
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_read.cpp
-stdio.h
--
-algorithm
--
-group_bulk_read.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_read.h
-group_bulk_read.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_read.h
-group_bulk_read.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_read.h
-../../include/dynamixel_sdk/group_bulk_read.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/group_bulk_read.h
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_write.cpp
-algorithm
--
-group_bulk_write.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_write.h
-group_bulk_write.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_write.h
-group_bulk_write.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_bulk_write.h
-../../include/dynamixel_sdk/group_bulk_write.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/group_bulk_write.h
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_read.cpp
-algorithm
--
-group_sync_read.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_read.h
-group_sync_read.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_read.h
-group_sync_read.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_read.h
-../../include/dynamixel_sdk/group_sync_read.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/group_sync_read.h
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_write.cpp
-algorithm
--
-group_sync_write.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_write.h
-group_sync_write.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_write.h
-group_sync_write.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/group_sync_write.h
-../../include/dynamixel_sdk/group_sync_write.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/group_sync_write.h
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/linear_read_write.cpp
-stdio.h
--
-string.h
--
-iostream
--
-cmath
--
-stdlib.h
--
-pthread.h
--
-fcntl.h
--
-errno.h
--
-termios.h
--
-unistd.h
--
-linear_read_write.h
--
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/packet_handler.cpp
-packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/packet_handler.h
-protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol1_packet_handler.h
-protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol2_packet_handler.h
-packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/packet_handler.h
-protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol1_packet_handler.h
-protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol2_packet_handler.h
-packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/packet_handler.h
-protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol1_packet_handler.h
-protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol2_packet_handler.h
-../../include/dynamixel_sdk/packet_handler.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/packet_handler.h
-../../include/dynamixel_sdk/protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/protocol1_packet_handler.h
-../../include/dynamixel_sdk/protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/protocol2_packet_handler.h
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler.cpp
-port_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler.h
-port_handler_linux.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler_linux.h
-port_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler.h
-port_handler_mac.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler_mac.h
-port_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler.h
-port_handler_windows.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler_windows.h
-../../include/dynamixel_sdk/port_handler.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/port_handler.h
-../../include/dynamixel_sdk/port_handler_arduino.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/port_handler_arduino.h
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler_linux.cpp
-stdio.h
--
-fcntl.h
--
-string.h
--
-unistd.h
--
-termios.h
--
-time.h
--
-sys/time.h
--
-sys/ioctl.h
--
-linux/serial.h
--
-port_handler_linux.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/port_handler_linux.h
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol1_packet_handler.cpp
-protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol1_packet_handler.h
-protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol1_packet_handler.h
-protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol1_packet_handler.h
-../../include/dynamixel_sdk/protocol1_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/protocol1_packet_handler.h
-string.h
--
-stdlib.h
--
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol2_packet_handler.cpp
-unistd.h
--
-protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol2_packet_handler.h
-unistd.h
--
-protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol2_packet_handler.h
-Windows.h
--
-protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/src/subsrc/protocol2_packet_handler.h
-../../include/dynamixel_sdk/protocol2_packet_handler.h
-/home/kist/Mobile_Robot-main/kist/include/dynamixel_sdk/protocol2_packet_handler.h
-stdio.h
--
-string.h
--
-stdlib.h
--
-
-/home/kist/Mobile_Robot-main/kist/src/subsrc/trajectory.cpp
-trajectory.h
--
-
-/home/kist/Mobile_Robot-main/kist/src/test_thread.cpp
-pthread.h
--
-stdio.h
--
-unistd.h
--
-controller.h
--
-dynamixel_sdk.h
-/home/kist/Mobile_Robot-main/kist/src/dynamixel_sdk.h
-sync_read_write2.h
--
-linear_read_write.h
--
-
 /usr/local/include/eigen3/Eigen/Cholesky
 Core
 /usr/local/include/eigen3/Eigen/Core
@@ -363,20 +137,50 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/Core
 src/Core/util/DisableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
-src/Core/util/Macros.h
-/usr/local/include/eigen3/Eigen/src/Core/util/Macros.h
-src/Core/util/ConfigureVectorization.h
-/usr/local/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h
 cuda_runtime.h
--
-hip/hip_runtime.h
 -
 new
 -
+src/Core/util/Macros.h
+/usr/local/include/eigen3/Eigen/src/Core/util/Macros.h
 complex
 -
 src/Core/util/MKL_support.h
 /usr/local/include/eigen3/Eigen/src/Core/util/MKL_support.h
+malloc.h
+-
+immintrin.h
+-
+mmintrin.h
+-
+emmintrin.h
+-
+xmmintrin.h
+-
+pmmintrin.h
+-
+tmmintrin.h
+-
+smmintrin.h
+-
+nmmintrin.h
+-
+immintrin.h
+-
+altivec.h
+-
+altivec.h
+-
+arm_neon.h
+-
+vecintrin.h
+-
+vector_types.h
+-
+host_defines.h
+-
+cuda_fp16.h
+-
 omp.h
 -
 cerrno
@@ -405,23 +209,11 @@ climits
 -
 algorithm
 -
-array
--
 type_traits
 -
 iostream
 -
 intrin.h
--
-CL/sycl.hpp
--
-map
--
-memory
--
-utility
--
-thread
 -
 src/Core/util/Constants.h
 /usr/local/include/eigen3/Eigen/src/Core/util/Constants.h
@@ -435,10 +227,6 @@ src/Core/util/XprHelper.h
 /usr/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
 src/Core/util/Memory.h
 /usr/local/include/eigen3/Eigen/src/Core/util/Memory.h
-src/Core/util/IntegralConstant.h
-/usr/local/include/eigen3/Eigen/src/Core/util/IntegralConstant.h
-src/Core/util/SymbolicIndex.h
-/usr/local/include/eigen3/Eigen/src/Core/util/SymbolicIndex.h
 src/Core/NumTraits.h
 /usr/local/include/eigen3/Eigen/src/Core/NumTraits.h
 src/Core/MathFunctions.h
@@ -449,62 +237,42 @@ src/Core/MathFunctionsImpl.h
 /usr/local/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h
 src/Core/arch/Default/ConjHelper.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h
-src/Core/arch/Default/Half.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/Half.h
-src/Core/arch/Default/BFloat16.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h
-src/Core/arch/Default/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/TypeCasting.h
-src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
 src/Core/arch/SSE/PacketMath.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
-src/Core/arch/SSE/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
-src/Core/arch/SSE/Complex.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
-src/Core/arch/AVX/PacketMath.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/PacketMath.h
-src/Core/arch/AVX/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
-src/Core/arch/AVX/Complex.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
-src/Core/arch/AVX512/PacketMath.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/PacketMath.h
-src/Core/arch/AVX512/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/TypeCasting.h
-src/Core/arch/AVX512/Complex.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/Complex.h
 src/Core/arch/SSE/MathFunctions.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
+src/Core/arch/AVX/PacketMath.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/PacketMath.h
 src/Core/arch/AVX/MathFunctions.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/MathFunctions.h
+src/Core/arch/AVX512/PacketMath.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/PacketMath.h
 src/Core/arch/AVX512/MathFunctions.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/MathFunctions.h
 src/Core/arch/SSE/PacketMath.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
-src/Core/arch/SSE/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
 src/Core/arch/SSE/Complex.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
+src/Core/arch/SSE/MathFunctions.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 src/Core/arch/AVX/PacketMath.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/PacketMath.h
-src/Core/arch/AVX/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
-src/Core/arch/AVX/Complex.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
-src/Core/arch/SSE/MathFunctions.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 src/Core/arch/AVX/MathFunctions.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/MathFunctions.h
-src/Core/arch/SSE/PacketMath.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
+src/Core/arch/AVX/Complex.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/Complex.h
+src/Core/arch/AVX/TypeCasting.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
 src/Core/arch/SSE/TypeCasting.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
+src/Core/arch/SSE/PacketMath.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
 src/Core/arch/SSE/MathFunctions.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 src/Core/arch/SSE/Complex.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
+src/Core/arch/SSE/TypeCasting.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
 src/Core/arch/AltiVec/PacketMath.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/PacketMath.h
 src/Core/arch/AltiVec/MathFunctions.h
@@ -513,50 +281,28 @@ src/Core/arch/AltiVec/Complex.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/Complex.h
 src/Core/arch/NEON/PacketMath.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/PacketMath.h
-src/Core/arch/NEON/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/NEON/TypeCasting.h
 src/Core/arch/NEON/MathFunctions.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/MathFunctions.h
 src/Core/arch/NEON/Complex.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/Complex.h
-src/Core/arch/SVE/PacketMath.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SVE/PacketMath.h
-src/Core/arch/SVE/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SVE/TypeCasting.h
-src/Core/arch/SVE/MathFunctions.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SVE/MathFunctions.h
 src/Core/arch/ZVector/PacketMath.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/PacketMath.h
 src/Core/arch/ZVector/MathFunctions.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/MathFunctions.h
 src/Core/arch/ZVector/Complex.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/Complex.h
-src/Core/arch/MSA/PacketMath.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/MSA/PacketMath.h
-src/Core/arch/MSA/MathFunctions.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/MSA/MathFunctions.h
-src/Core/arch/MSA/Complex.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/MSA/Complex.h
-src/Core/arch/GPU/PacketMath.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/GPU/PacketMath.h
-src/Core/arch/GPU/MathFunctions.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/GPU/MathFunctions.h
-src/Core/arch/GPU/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/GPU/TypeCasting.h
-src/Core/arch/SYCL/SyclMemoryModel.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/SyclMemoryModel.h
-src/Core/arch/SYCL/InteropHeaders.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/InteropHeaders.h
-src/Core/arch/SYCL/PacketMath.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/PacketMath.h
-src/Core/arch/SYCL/MathFunctions.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/MathFunctions.h
-src/Core/arch/SYCL/TypeCasting.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/TypeCasting.h
+src/Core/arch/CUDA/Half.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/Half.h
+src/Core/arch/CUDA/PacketMathHalf.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMathHalf.h
+src/Core/arch/CUDA/TypeCasting.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/TypeCasting.h
+src/Core/arch/CUDA/PacketMath.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMath.h
+src/Core/arch/CUDA/MathFunctions.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/MathFunctions.h
 src/Core/arch/Default/Settings.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/Default/Settings.h
-src/Core/arch/Default/GenericPacketMathFunctions.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h
 src/Core/functors/TernaryFunctors.h
 /usr/local/include/eigen3/Eigen/src/Core/functors/TernaryFunctors.h
 src/Core/functors/BinaryFunctors.h
@@ -571,12 +317,6 @@ src/Core/functors/AssignmentFunctors.h
 /usr/local/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h
 src/Core/arch/CUDA/Complex.h
 /usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/Complex.h
-src/Core/util/IndexedViewHelper.h
-/usr/local/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h
-src/Core/util/ReshapedHelper.h
-/usr/local/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h
-src/Core/ArithmeticSequence.h
-/usr/local/include/eigen3/Eigen/src/Core/ArithmeticSequence.h
 src/Core/IO.h
 /usr/local/include/eigen3/Eigen/src/Core/IO.h
 src/Core/DenseCoeffsBase.h
@@ -641,10 +381,6 @@ src/Core/Block.h
 /usr/local/include/eigen3/Eigen/src/Core/Block.h
 src/Core/VectorBlock.h
 /usr/local/include/eigen3/Eigen/src/Core/VectorBlock.h
-src/Core/IndexedView.h
-/usr/local/include/eigen3/Eigen/src/Core/IndexedView.h
-src/Core/Reshaped.h
-/usr/local/include/eigen3/Eigen/src/Core/Reshaped.h
 src/Core/Transpose.h
 /usr/local/include/eigen3/Eigen/src/Core/Transpose.h
 src/Core/DiagonalMatrix.h
@@ -715,18 +451,12 @@ src/Core/CoreIterators.h
 /usr/local/include/eigen3/Eigen/src/Core/CoreIterators.h
 src/Core/ConditionEstimator.h
 /usr/local/include/eigen3/Eigen/src/Core/ConditionEstimator.h
-src/Core/arch/AltiVec/MatrixProduct.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
-src/Core/arch/NEON/GeneralBlockPanelKernel.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/NEON/GeneralBlockPanelKernel.h
 src/Core/BooleanRedux.h
 /usr/local/include/eigen3/Eigen/src/Core/BooleanRedux.h
 src/Core/Select.h
 /usr/local/include/eigen3/Eigen/src/Core/Select.h
 src/Core/VectorwiseOp.h
 /usr/local/include/eigen3/Eigen/src/Core/VectorwiseOp.h
-src/Core/PartialReduxEvaluator.h
-/usr/local/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h
 src/Core/Random.h
 /usr/local/include/eigen3/Eigen/src/Core/Random.h
 src/Core/Replicate.h
@@ -735,8 +465,6 @@ src/Core/Reverse.h
 /usr/local/include/eigen3/Eigen/src/Core/Reverse.h
 src/Core/ArrayWrapper.h
 /usr/local/include/eigen3/Eigen/src/Core/ArrayWrapper.h
-src/Core/StlIterators.h
-/usr/local/include/eigen3/Eigen/src/Core/StlIterators.h
 src/Core/products/GeneralMatrixMatrix_BLAS.h
 /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix_BLAS.h
 src/Core/products/GeneralMatrixVector_BLAS.h
@@ -867,8 +595,8 @@ src/Geometry/AlignedBox.h
 /usr/local/include/eigen3/Eigen/src/Geometry/AlignedBox.h
 src/Geometry/Umeyama.h
 /usr/local/include/eigen3/Eigen/src/Geometry/Umeyama.h
-src/Geometry/arch/Geometry_SIMD.h
-/usr/local/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h
+src/Geometry/arch/Geometry_SSE.h
+/usr/local/include/eigen3/Eigen/src/Geometry/arch/Geometry_SSE.h
 src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
@@ -919,8 +647,8 @@ src/LU/Determinant.h
 /usr/local/include/eigen3/Eigen/src/LU/Determinant.h
 src/LU/InverseImpl.h
 /usr/local/include/eigen3/Eigen/src/LU/InverseImpl.h
-src/LU/arch/InverseSize4.h
-/usr/local/include/eigen3/Eigen/src/LU/arch/InverseSize4.h
+src/LU/arch/Inverse_SSE.h
+/usr/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
 src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
@@ -988,11 +716,11 @@ src/Core/util/ReenableStupidWarnings.h
 
 /usr/local/include/eigen3/Eigen/src/Cholesky/LLT_LAPACKE.h
 
-/usr/local/include/eigen3/Eigen/src/Core/ArithmeticSequence.h
-
 /usr/local/include/eigen3/Eigen/src/Core/Array.h
 
 /usr/local/include/eigen3/Eigen/src/Core/ArrayBase.h
+../plugins/CommonCwiseUnaryOps.h
+/usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 ../plugins/MatrixCwiseUnaryOps.h
 /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 ../plugins/ArrayCwiseUnaryOps.h
@@ -1037,14 +765,8 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/CwiseUnaryView.h
 
 /usr/local/include/eigen3/Eigen/src/Core/DenseBase.h
-../plugins/CommonCwiseUnaryOps.h
-/usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 ../plugins/BlockMethods.h
 /usr/local/include/eigen3/Eigen/src/plugins/BlockMethods.h
-../plugins/IndexedViewMethods.h
-/usr/local/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
-../plugins/ReshapedMethods.h
-/usr/local/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
 
 /usr/local/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h
 
@@ -1070,8 +792,6 @@ src/Core/util/ReenableStupidWarnings.h
 
 /usr/local/include/eigen3/Eigen/src/Core/IO.h
 
-/usr/local/include/eigen3/Eigen/src/Core/IndexedView.h
-
 /usr/local/include/eigen3/Eigen/src/Core/Inverse.h
 
 /usr/local/include/eigen3/Eigen/src/Core/Map.h
@@ -1085,6 +805,8 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/Matrix.h
 
 /usr/local/include/eigen3/Eigen/src/Core/MatrixBase.h
+../plugins/CommonCwiseUnaryOps.h
+/usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 ../plugins/CommonCwiseBinaryOps.h
 /usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h
 ../plugins/MatrixCwiseUnaryOps.h
@@ -1097,8 +819,6 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/NoAlias.h
 
 /usr/local/include/eigen3/Eigen/src/Core/NumTraits.h
-
-/usr/local/include/eigen3/Eigen/src/Core/PartialReduxEvaluator.h
 
 /usr/local/include/eigen3/Eigen/src/Core/PermutationMatrix.h
 
@@ -1115,8 +835,6 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/Ref.h
 
 /usr/local/include/eigen3/Eigen/src/Core/Replicate.h
-
-/usr/local/include/eigen3/Eigen/src/Core/Reshaped.h
 
 /usr/local/include/eigen3/Eigen/src/Core/ReturnByValue.h
 
@@ -1135,8 +853,6 @@ src/Core/util/ReenableStupidWarnings.h
 /usr/local/include/eigen3/Eigen/src/Core/SolverBase.h
 
 /usr/local/include/eigen3/Eigen/src/Core/StableNorm.h
-
-/usr/local/include/eigen3/Eigen/src/Core/StlIterators.h
 
 /usr/local/include/eigen3/Eigen/src/Core/Stride.h
 
@@ -1162,77 +878,39 @@ src/Core/util/ReenableStupidWarnings.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/AVX/TypeCasting.h
 
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/Complex.h
-
 /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/MathFunctions.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/PacketMath.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/AVX512/TypeCasting.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/Complex.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MathFunctions.h
 
-/usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProduct.h
-MatrixProductCommon.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductCommon.h
-MatrixProductMMA.h
-/usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductMMA.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductCommon.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/MatrixProductMMA.h
-
 /usr/local/include/eigen3/Eigen/src/Core/arch/AltiVec/PacketMath.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/Complex.h
 
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/BFloat16.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/Half.h
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/Half.h
 sstream
 -
 
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/MathFunctions.h
+
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMath.h
+
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/PacketMathHalf.h
+
+/usr/local/include/eigen3/Eigen/src/Core/arch/CUDA/TypeCasting.h
+
+/usr/local/include/eigen3/Eigen/src/Core/arch/Default/ConjHelper.h
+
 /usr/local/include/eigen3/Eigen/src/Core/arch/Default/Settings.h
 
-/usr/local/include/eigen3/Eigen/src/Core/arch/Default/TypeCasting.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/GPU/MathFunctions.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/GPU/PacketMath.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/GPU/TypeCasting.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/HIP/hcc/math_constants.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/MSA/Complex.h
-iostream
--
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/MSA/MathFunctions.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/MSA/PacketMath.h
-iostream
--
-string
--
-
 /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/Complex.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/NEON/GeneralBlockPanelKernel.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/MathFunctions.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/NEON/PacketMath.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/NEON/TypeCasting.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
 
@@ -1242,41 +920,13 @@ string
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
 
-/usr/local/include/eigen3/Eigen/src/Core/arch/SVE/MathFunctions.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/SVE/PacketMath.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/SVE/TypeCasting.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/InteropHeaders.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/MathFunctions.h
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/PacketMath.h
-type_traits
--
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/SyclMemoryModel.h
-CL/sycl.hpp
--
-stdexcept
--
-cstddef
--
-queue
--
-set
--
-unordered_map
--
-
-/usr/local/include/eigen3/Eigen/src/Core/arch/SYCL/TypeCasting.h
-
 /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/Complex.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/MathFunctions.h
 
 /usr/local/include/eigen3/Eigen/src/Core/arch/ZVector/PacketMath.h
+stdint.h
+-
 
 /usr/local/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h
 
@@ -1305,8 +955,6 @@ unordered_map
 /usr/local/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector_BLAS.h
 
 /usr/local/include/eigen3/Eigen/src/Core/products/Parallelizer.h
-atomic
--
 
 /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix.h
 
@@ -1336,63 +984,11 @@ atomic
 
 /usr/local/include/eigen3/Eigen/src/Core/util/BlasUtil.h
 
-/usr/local/include/eigen3/Eigen/src/Core/util/ConfigureVectorization.h
-malloc.h
--
-immintrin.h
--
-mmintrin.h
--
-emmintrin.h
--
-xmmintrin.h
--
-pmmintrin.h
--
-tmmintrin.h
--
-smmintrin.h
--
-nmmintrin.h
--
-immintrin.h
--
-altivec.h
--
-altivec.h
--
-arm_neon.h
--
-arm_sve.h
--
-vecintrin.h
--
-msa.h
--
-arm_fp16.h
--
-immintrin.h
--
-vector_types.h
--
-cuda_runtime_api.h
--
-cuda_fp16.h
--
-hip/hip_vector_types.h
--
-hip/hip_fp16.h
--
-
 /usr/local/include/eigen3/Eigen/src/Core/util/Constants.h
 
 /usr/local/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h
 
 /usr/local/include/eigen3/Eigen/src/Core/util/ForwardDeclarations.h
-
-/usr/local/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h
-
-/usr/local/include/eigen3/Eigen/src/Core/util/IntegralConstant.h
 
 /usr/local/include/eigen3/Eigen/src/Core/util/MKL_support.h
 mkl.h
@@ -1401,12 +997,6 @@ mkl.h
 /usr/local/include/eigen3/Eigen/src/misc/blas.h
 
 /usr/local/include/eigen3/Eigen/src/Core/util/Macros.h
-cuda.h
--
-hip/hip_runtime.h
--
-cmath
--
 cstdlib
 -
 iostream
@@ -1419,8 +1009,8 @@ cfloat
 -
 math_constants.h
 -
-Eigen/src/Core/arch/HIP/hcc/math_constants.h
-/usr/local/include/eigen3/Eigen/src/Core/util/Eigen/src/Core/arch/HIP/hcc/math_constants.h
+cstdint
+-
 cstdint
 -
 stdint.h
@@ -1428,49 +1018,31 @@ stdint.h
 
 /usr/local/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 
-/usr/local/include/eigen3/Eigen/src/Core/util/ReshapedHelper.h
-
 /usr/local/include/eigen3/Eigen/src/Core/util/StaticAssert.h
-
-/usr/local/include/eigen3/Eigen/src/Core/util/SymbolicIndex.h
 
 /usr/local/include/eigen3/Eigen/src/Core/util/XprHelper.h
 
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./ComplexSchur.h
-./HessenbergDecomposition.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/././HessenbergDecomposition.h
-
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
-
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./RealQZ.h
-
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./RealSchur.h
-./HessenbergDecomposition.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/././HessenbergDecomposition.h
-
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./Tridiagonalization.h
-
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexEigenSolver.h
 ./ComplexSchur.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./ComplexSchur.h
+/usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur.h
 ./HessenbergDecomposition.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
+/usr/local/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/EigenSolver.h
 ./RealSchur.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./RealSchur.h
+/usr/local/include/eigen3/Eigen/src/Eigenvalues/RealSchur.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h
 ./RealQZ.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./RealQZ.h
+/usr/local/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h
 ./Tridiagonalization.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./Tridiagonalization.h
+/usr/local/include/eigen3/Eigen/src/Eigenvalues/Tridiagonalization.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h
 
@@ -1480,13 +1052,13 @@ stdint.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealSchur.h
 ./HessenbergDecomposition.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
+/usr/local/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/RealSchur_LAPACKE.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h
 ./Tridiagonalization.h
-/usr/local/include/eigen3/Eigen/src/Eigenvalues/./Tridiagonalization.h
+/usr/local/include/eigen3/Eigen/src/Eigenvalues/Tridiagonalization.h
 
 /usr/local/include/eigen3/Eigen/src/Eigenvalues/SelfAdjointEigenSolver_LAPACKE.h
 
@@ -1520,7 +1092,7 @@ stdint.h
 
 /usr/local/include/eigen3/Eigen/src/Geometry/Umeyama.h
 
-/usr/local/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h
+/usr/local/include/eigen3/Eigen/src/Geometry/arch/Geometry_SSE.h
 
 /usr/local/include/eigen3/Eigen/src/Householder/BlockHouseholder.h
 
@@ -1540,7 +1112,7 @@ stdint.h
 
 /usr/local/include/eigen3/Eigen/src/LU/PartialPivLU_LAPACKE.h
 
-/usr/local/include/eigen3/Eigen/src/LU/arch/InverseSize4.h
+/usr/local/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
 
 /usr/local/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h
 
@@ -1596,15 +1168,7 @@ lapacke_mangling.h
 
 /usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
 
-/usr/local/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
-IndexedViewMethods.h
-/usr/local/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h
-
 /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
 
 /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
-
-/usr/local/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
-ReshapedMethods.h
-/usr/local/include/eigen3/Eigen/src/plugins/ReshapedMethods.h
 

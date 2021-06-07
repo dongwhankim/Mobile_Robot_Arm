@@ -28,8 +28,15 @@ class CRobot_Arm_TR
   uint8_t _param_goal_position3[4];
   uint8_t _param_goal_position4[4];                     // Present position
   int _dxl_goal_position[5];
-  int   _profile_velocity[5];
-  int   _profile_acceleration[5];
+  double   _profile_velocity[5];
+  double   _profile_acceleration[5];
+
+  int RESOLUTION_RH_P12_RN = 4096; 
+  int RESOLUTION_PH42_S300_R = 607500;
+  int RESOLUTION_PM42_010_S260_R = 526374;
+
+  int Profile_t1 = 1000;  //(1s)
+  int Profile_t2 = 3500;  //(3.5s)
   
 };
 #endif

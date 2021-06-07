@@ -1,5 +1,5 @@
-/home/kist/Mobile_Robot-main/kist/build/CMakeFiles/rebuild_cache.dir
-/home/kist/Mobile_Robot-main/kist/build/CMakeFiles/edit_cache.dir
-/home/kist/Mobile_Robot-main/kist/build/src/CMakeFiles/rebuild_cache.dir
-/home/kist/Mobile_Robot-main/kist/build/src/CMakeFiles/dynamixel_test.dir
-/home/kist/Mobile_Robot-main/kist/build/src/CMakeFiles/edit_cache.dir
+/home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build/CMakeFiles/rebuild_cache.dir
+/home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build/CMakeFiles/edit_cache.dir
+/home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build/src/CMakeFiles/rebuild_cache.dir
+/home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build/src/CMakeFiles/dynamixel_test.dir
+/home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build/src/CMakeFiles/edit_cache.dir
