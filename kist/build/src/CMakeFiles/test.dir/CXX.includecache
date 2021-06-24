@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/wheel.h
+
+/home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/src/subsrc/wheel.cpp
+stdio.h
+-
+string.h
+-
+iostream
+-
+cmath
+-
+stdlib.h
+-
+pthread.h
+-
+fcntl.h
+-
+errno.h
+-
+termios.h
+-
+unistd.h
+-
+wheel.h
+-
+
