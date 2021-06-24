@@ -476,6 +476,33 @@ subsrc/trajectory.cpp.s:
 	cd /home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build && $(MAKE) -f src/CMakeFiles/dynamixel_test.dir/build.make src/CMakeFiles/dynamixel_test.dir/subsrc/trajectory.cpp.s
 .PHONY : subsrc/trajectory.cpp.s
 
+subsrc/wheel.o: subsrc/wheel.cpp.o
+
+.PHONY : subsrc/wheel.o
+
+# target to build an object file
+subsrc/wheel.cpp.o:
+	cd /home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build && $(MAKE) -f src/CMakeFiles/dynamixel_test.dir/build.make src/CMakeFiles/dynamixel_test.dir/subsrc/wheel.cpp.o
+.PHONY : subsrc/wheel.cpp.o
+
+subsrc/wheel.i: subsrc/wheel.cpp.i
+
+.PHONY : subsrc/wheel.i
+
+# target to preprocess a source file
+subsrc/wheel.cpp.i:
+	cd /home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build && $(MAKE) -f src/CMakeFiles/dynamixel_test.dir/build.make src/CMakeFiles/dynamixel_test.dir/subsrc/wheel.cpp.i
+.PHONY : subsrc/wheel.cpp.i
+
+subsrc/wheel.s: subsrc/wheel.cpp.s
+
+.PHONY : subsrc/wheel.s
+
+# target to generate assembly for a file
+subsrc/wheel.cpp.s:
+	cd /home/pi/Mobile_Robot/Mobile_Robot_Arm/kist/build && $(MAKE) -f src/CMakeFiles/dynamixel_test.dir/build.make src/CMakeFiles/dynamixel_test.dir/subsrc/wheel.cpp.s
+.PHONY : subsrc/wheel.cpp.s
+
 test_thread.o: test_thread.cpp.o
 
 .PHONY : test_thread.o
@@ -551,6 +578,9 @@ help:
 	@echo "... subsrc/trajectory.o"
 	@echo "... subsrc/trajectory.i"
 	@echo "... subsrc/trajectory.s"
+	@echo "... subsrc/wheel.o"
+	@echo "... subsrc/wheel.i"
+	@echo "... subsrc/wheel.s"
 	@echo "... test_thread.o"
 	@echo "... test_thread.i"
 	@echo "... test_thread.s"

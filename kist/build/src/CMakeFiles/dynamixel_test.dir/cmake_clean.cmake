@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/dynamixel_test.dir/subsrc/protocol1_packet_handler.cpp.o"
   "CMakeFiles/dynamixel_test.dir/subsrc/protocol2_packet_handler.cpp.o"
   "CMakeFiles/dynamixel_test.dir/subsrc/trajectory.cpp.o"
+  "CMakeFiles/dynamixel_test.dir/subsrc/wheel.cpp.o"
   "CMakeFiles/dynamixel_test.dir/test_thread.cpp.o"
   "dynamixel_test"
   "dynamixel_test.pdb"

@@ -483,6 +483,9 @@ src/CMakeFiles/dynamixel_test.dir/subsrc/protocol2_packet_handler.cpp.o: ../src/
 src/CMakeFiles/dynamixel_test.dir/subsrc/trajectory.cpp.o: ../include/trajectory.h
 src/CMakeFiles/dynamixel_test.dir/subsrc/trajectory.cpp.o: ../src/subsrc/trajectory.cpp
 
+src/CMakeFiles/dynamixel_test.dir/subsrc/wheel.cpp.o: ../include/wheel.h
+src/CMakeFiles/dynamixel_test.dir/subsrc/wheel.cpp.o: ../src/subsrc/wheel.cpp
+
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/controller.h
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/dynamixel_sdk.h
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/group_bulk_read.h
@@ -493,6 +496,7 @@ src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/linear_read_writ
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/packet_handler.h
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/port_handler.h
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/sync_read_write2.h
+src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../include/wheel.h
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: ../src/test_thread.cpp
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: /usr/local/include/eigen3/Eigen/Cholesky
 src/CMakeFiles/dynamixel_test.dir/test_thread.cpp.o: /usr/local/include/eigen3/Eigen/Core

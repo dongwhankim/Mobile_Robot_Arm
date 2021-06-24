@@ -1,6 +1,6 @@
 
         #find_package( Threads )
-
+        #dynamixel_test
         add_executable(dynamixel_test
         test_thread.cpp
         subsrc/group_bulk_read.cpp
@@ -15,9 +15,10 @@
         subsrc/trajectory.cpp
         subsrc/controller.cpp
         subsrc/dynamixel_read_write.cpp
-        subsrc/linear_read_write.cpp     
+        subsrc/linear_read_write.cpp
+        subsrc/wheel.cpp     
         )
         
 
         target_link_libraries(dynamixel_test pthread)
-        #target_link_libraries( dynamixel_test ${CMAKE_THREAD_LIBS_INIT} )
+        #target_link_libraries(dynamixel_test ${CMAKE_THREAD_LIBS_INIT} )
